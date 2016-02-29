@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  relative_path: MyString
+  file_hash: MyString
+  image_hash: MyString
+  path_id: 
+
+two:
+  relative_path: MyString
+  file_hash: MyString
+  image_hash: MyString
+  path_id: 

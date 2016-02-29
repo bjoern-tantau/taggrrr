@@ -1,0 +1,6 @@
+<h1>Edit Path</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', path_path(@path) %>
+<%= link_to 'Delete', path_path(@path), method: :delete, data: { confirm: "Are you sure you wish to delete the path #{@path.path}?" } %>

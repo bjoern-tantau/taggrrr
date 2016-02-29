@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Taggrrr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <ol class="nav">
+      <li><%= link_to 'Images', images_path %></li>
+      <li><%= link_to 'Add Path', new_path_path %></li>
+    </ol>
+
+    <% if notice %>
+      <p id="notice"><%= notice %></p>
+    <% end %>
+  </header>
+  
+  <content>
+    <%= yield %>
+  </content>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<div class="pagination">
+  <%= paginate @images %>
+</div>
+
+<div class="images">
+  <ul class="thumbs">
+    <%= render partial: 'images' %>
+  </ul>
+
+  <div class="ajax_pagination">
+    <%= link_to_next_page(@images, 'Load more images', remote: true) %>
+  </div>
+</div>
+
+<div class="pagination">
+  <%= paginate @images %>
+</div>

@@ -1,0 +1,11 @@
+$background-color: #000;
+$font-color: #ccc;
+body {
+  background: $background-color;
+  color: $font-color;
+  font-family: sans-serif;
+}
+
+a {
+  color: $font-color;
+}

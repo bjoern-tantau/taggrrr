@@ -1,0 +1,33 @@
+<h1>Path</h1>
+<p>
+  <strong>Path:</strong>
+  <%= @path.path %>
+</p>
+
+<% if @path.root %>
+<h2>Directories</h2>
+<ul>
+  <% @path.root.children.each do |dir| %>
+    <li>
+      <%= dir.name %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>Images</h2>
+<ul>
+  <% @path.root.images.each do |image| %>
+    <li>
+      <%= link_to image.name, output_image_path(image) %>
+    </li>
+  <% end %>
+</ul>
+<% end %>
+<ol>
+  <li>
+    <%= link_to 'Edit', edit_path_path(@path) %>
+  </li>
+  <li>
+    <%= link_to 'Scan', scan_path_path(@path) %>
+  </li>
+</ol>

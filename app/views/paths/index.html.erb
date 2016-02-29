@@ -1,0 +1,7 @@
+<h1>Paths</h1>
+
+<ol>
+  <% @paths.each do |path| %>
+    <li><%= link_to path.path, path_path(path) %></li>
+  <% end %>
+</ol>

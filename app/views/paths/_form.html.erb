@@ -1,0 +1,23 @@
+<%= form_for @path do |f| %>
+  <% if @path.errors.any? %>
+    <div class="errors">
+      <h2><%= pluralize(@path.errors.count, "error") %> prohibited this path from being saved:</h2>
+      <ul>
+        <% @path.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <ol>
+      <li>
+        <%= f.label :path %>
+        <%= f.text_field :path %>
+      </li>
+      <li>
+        <%= f.submit %>
+      </li>
+    </ol>
+  </fieldset>
+<% end %>

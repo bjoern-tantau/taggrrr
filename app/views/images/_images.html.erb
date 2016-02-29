@@ -1,0 +1,5 @@
+<% @images.each do |image| %>
+  <li class="thumb">
+    <%= link_to image_tag(thumbnail_image_path(image), alt: image.name), image_path(image), data: { :url => request.original_url } %>
+  </li>
+<% end %>
