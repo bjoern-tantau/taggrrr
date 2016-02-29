@@ -21,11 +21,7 @@ class PathScanJob < ActiveJob::Base
             image.file_hash = image.image_file.file_hash
             image.image_hash = image.image_file.image_hash
             image.save
-            image.image_file.tags.each do |label, value|
-              tag = Tag.find_or_initialize_by(label: label, image: image)
-              tag.value = value
-              tag.save
-            end
+            ImageScanJob.perform_later image
           end
         end
       end

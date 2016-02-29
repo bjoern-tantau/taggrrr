@@ -47,6 +47,9 @@ gem 'kaminari'
 # Infinite scrolling
 gem 'jquery-infinite-pages'
 
+# Siedkiq ActiveJob Queue
+gem 'sidekiq'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
