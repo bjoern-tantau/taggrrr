@@ -4,8 +4,15 @@ body {
   background: $background-color;
   color: $font-color;
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 a {
   color: $font-color;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }

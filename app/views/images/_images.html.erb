@@ -1,5 +1,11 @@
 <% @images.each do |image| %>
-  <li class="thumb">
-    <%= link_to image_tag(thumbnail_image_path(image), alt: image.name), image_path(image), data: { :url => request.original_url } %>
+  <li class="thumb" id="image_thumb_<%= image.id %>">
+    <label for="image_checkbox_<%= image.id %>">
+      <input id="image_checkbox_<%= image.id %>" type="checkbox" name="images[]" value="<%= image.id %>" />
+      <%= image_tag(thumbnail_image_path(image), alt: image.name, data: {'large': output_image_path(image), 'thumb': thumbnail_image_path(image) }) %>
+      <div class="info">
+        <%= link_to image.name, image_path(image), data: { :url => request.original_url } %>
+      </div>
+    </label>
   </li>
 <% end %>

@@ -1,0 +1,7 @@
+$("<%=j render partial: 'show' %>").appendTo("content");
+
+var url = "<%=j request.original_url %>";
+var state = {
+  body: $('body').html()
+};
+window.history.replaceState(state, '', url);

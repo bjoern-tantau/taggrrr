@@ -18,3 +18,9 @@ $ ->
         window.location.reload()
   $(document).on 'click', 'a[data-url]', ->
     window.history.replaceState null, null, $(this).data 'url'
+  $(document).on 'click', '.thumb a', (event) ->
+    event.preventDefault()
+    thumb = $(this).parents('.thumb')
+    thumb.addClass('large')
+    img = thumb.find('img')
+    img.attr('src', img.data('large'))
