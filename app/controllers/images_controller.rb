@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
 
   def thumbnail
     @image = Image.find(params[:id])
-    size = '150x150'
+    size = '115x115'
     dir = File.join('tmp', 'cache', 'images')
     Dir.mkdir dir unless File.exists? dir
     filename = File.join(dir, @image.file_hash + size + @image.name)
