@@ -1,5 +1,5 @@
 <li>
-  <%= check_box_tag('directories[id][]', directory.id, directory.id.to_s.in?(@filter_params.dig(:directories, 'id') || []), id: 'directories_' << directory.id.to_s) %>
+  <%= check_box_tag('directories[id][]', directory.id, directory.id.to_s.in?(@params.dig(:directories, 'id') || []), id: 'directories_' << directory.id.to_s) %>
   <%= label_tag('directories_' << directory.id.to_s, (directory.name.presence || '/')) %>
   <ol class="directory_filters">
     <% directory.children.each do |child| %>

@@ -2,10 +2,12 @@
   <li>
     Filter:
     <%= form_tag(images_path, method: "get", enforce_utf8: false) do %>
+      <!-- FileModifyDate.value -->
+      <%= select_tag "order", options_for_select({ 'Date Descending' => 'date.desc', 'Date Ascending' => 'date.asc' }, @params[:order]) %>
       <ol class="filters">
         <% @paths.each do |path| %>
           <li>
-            <%= check_box_tag('paths[id][]', path.id, path.id.to_s.in?(@filter_params.dig(:paths, 'id') || []), id: 'paths_' << path.id.to_s) %>
+            <%= check_box_tag('paths[id][]', path.id, path.id.to_s.in?(@params.dig(:paths, 'id') || []), id: 'paths_' << path.id.to_s) %>
             <%= label_tag('paths_' << path.id.to_s, path.path) %>
             <ol class="filters">
               <%= render partial: 'directory_filter', locals: { directory: path.root } %>

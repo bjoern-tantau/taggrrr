@@ -1,9 +1,19 @@
 class ImagesController < ApplicationController
   def index
+    @params = params
     @filter_params = params.slice( :paths, :directories, :keywords ).symbolize_keys
+    order = case @params[:order]
+    when 'date.asc'
+      'COALESCE(DateTimeOriginal.value, FileModifyDate.value) ASC'
+    else
+      'COALESCE(DateTimeOriginal.value, FileModifyDate.value) DESC'
+    end
     @images = Image
       .includes(:path)
+      .joins("LEFT JOIN tags AS FileModifyDate ON FileModifyDate.image_id = images.id AND FileModifyDate.label = 'FileModifyDate'")
+      .joins("LEFT JOIN tags AS DateTimeOriginal ON DateTimeOriginal.image_id = images.id AND DateTimeOriginal.label = 'DateTimeOriginal'")
       .where(@filter_params)
+      .order(order)
       .page(params[:page])
     @paths = Path.all
   end
