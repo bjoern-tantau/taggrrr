@@ -16,3 +16,45 @@ img {
   display: block;
   max-width: 100%;
 }
+
+header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  background: #333;
+
+  &.active {
+    height: 100%;
+    width: 200px;
+
+    .nav {
+      left: 0;
+    }
+  }
+
+  .toggle-nav {
+    position: absolute;
+    top: 0;
+    right: -3em;
+    z-index: 2000;
+    display: block;
+    width: 3em;
+    height: 3em;
+    overflow: hidden;
+    text-indent: 1000px;
+    white-space: nowrap;
+  }
+
+  .nav {
+    position: absolute;
+    left: -200px;
+    top: 0;
+    z-index: 1000;
+    width: 200px;
+    height: 100%;
+    background: #333;
+    box-sizing: border-box;
+    padding: 2em;
+    list-style: none;
+  }
+}
