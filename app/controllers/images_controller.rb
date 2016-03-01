@@ -24,7 +24,8 @@ class ImagesController < ApplicationController
 
   def output
     @image = Image.find(params[:id])
-    send_file @image.full_path, type: @image.image_file.mime_type, disposition: 'inline'
+    @image.image_file.image.auto_orient
+    send_file @image.image_file.image.path, type: @image.image_file.mime_type, disposition: 'inline'
   end
 
   def thumbnail
@@ -36,6 +37,7 @@ class ImagesController < ApplicationController
     if !File.readable?(filename)
       thumb = @image.image_file.image
       thumb.combine_options do |i|
+        i.auto_orient
         i.resize(size + '^')
         i.gravity('center')
         i.crop(size + '+0+0')
