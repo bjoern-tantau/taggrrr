@@ -9,6 +9,13 @@
   -o-transform: $value;
   transform: $value;
 }
+.pagination {
+  height: 3em;
+  line-height: 3em;
+  width: 100%;
+  padding-left: 3em;
+  box-sizing: border-box;
+}
 .images {
   .thumbs {
     list_style: none;
@@ -55,5 +62,15 @@
         height: auto;
       }
     }
+  }
+}
+
+.nav ol {
+  list-style: none;
+  margin-left: 1em;
+  padding: 0;
+
+  li {
+    word-wrap: break-word;
   }
 }

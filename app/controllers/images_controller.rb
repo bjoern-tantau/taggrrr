@@ -1,6 +1,11 @@
 class ImagesController < ApplicationController
   def index
-    @images = Image.all.page params[:page]
+    @filter_params = params.slice( :paths, :directories, :keywords ).symbolize_keys
+    @images = Image
+      .includes(:path)
+      .where(@filter_params)
+      .page(params[:page])
+    @paths = Path.all
   end
 
   def show

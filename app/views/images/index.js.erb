@@ -1,14 +1,15 @@
 $("<%=j render partial: 'images' %>").appendTo('.images ul');
 
-$('.pagination').html("<%=j paginate @images %>");
+$('nav.pagination').replaceWith("<%=j paginate @images %>");
 
 <% if @images.last_page? %>
   $('.ajax_pagination').addClass('done').html('No more images.');
 <% else %>
-  $('.ajax_pagination').html("<%=j link_to_next_page(@images, 'Load more images', remote: true) %>");
+  $('.ajax_pagination').html("<%=j link_to_next_page(@images, 'Load more images', remote: true, params: @filter_params) %>");
 <% end %>
 
-var url = "<%=j request.original_url %>";
+var url = "<%==j request.original_url %>";
+console.log(url);
 var state = {
   body: $('body').html()
 };

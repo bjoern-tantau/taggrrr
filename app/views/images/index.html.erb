@@ -1,6 +1,4 @@
-<div class="pagination">
-  <%= paginate @images %>
-</div>
+<%= paginate @images %>
 
 <div class="images">
   <ul class="thumbs">
@@ -8,10 +6,6 @@
   </ul>
 
   <div class="ajax_pagination">
-    <%= link_to_next_page(@images, 'Load more images', remote: true) %>
+    <%= link_to_next_page(@images, 'Load more images', remote: true, params: @filter_params) %>
   </div>
-</div>
-
-<div class="pagination">
-  <%= paginate @images %>
 </div>

@@ -14,7 +14,7 @@
     <ol class="nav">
       <li><%= link_to 'Images', images_path %></li>
       <li><%= link_to 'Paths', paths_path %></li>
-      <li><%= link_to 'Add Path', new_path_path %></li>
+      <%= render partial: 'nav' %>
     </ol>
 
     <% if notice %>
