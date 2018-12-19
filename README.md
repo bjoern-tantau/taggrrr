@@ -2,6 +2,8 @@
 
 An image gallery that should make tagging easier.
 
+Currently abandoned. Don't install, there are known security vulnerabilities in the dependencies.
+
 ## Another gallery?
 
 I didn't like the existing gallery solutions. One of the biggest problem is that I already
